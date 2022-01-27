@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 
 namespace web
 {
-    public class Relatorio
+    public class Relatorio : IRelatorio
     {
-        private readonly Catalogo catalogo;
+        private readonly ICatalogo catalogo;
 
-        public Relatorio(Catalogo catalogo)
+        public Relatorio(ICatalogo catalogo)
         {
             this.catalogo = catalogo;
         }
