@@ -23,11 +23,15 @@ namespace CasaDoCodigo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            
+            //Método ensinado no curso. Deu erro ao baixar o migration: ConnectionString Null
+            //string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            //services.AddDbContext<ApplicationContext>(options =>
+                //options.UseSqlServer("connectionString"));
 
-            string connectionString = Configuration.GetConnectionString("Default");
 
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CasaDoCodigo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
