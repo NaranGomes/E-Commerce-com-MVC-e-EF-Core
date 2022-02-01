@@ -58,7 +58,7 @@ namespace CasaDoCodigo
                     template: "{controller=Pedido}/{action=Carrossel}/{id?}");
             });
 
-            serviceProvider.GetService<DataService>().IncializaDB();
+            serviceProvider.GetService<IDataService>().IncializaDB();
         }
         
     }
