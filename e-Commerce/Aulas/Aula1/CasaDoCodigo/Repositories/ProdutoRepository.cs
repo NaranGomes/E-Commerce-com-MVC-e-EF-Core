@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CasaDoCodigo.Repositories
 {
@@ -12,6 +13,11 @@ namespace CasaDoCodigo.Repositories
         public ProdutoRepository(ApplicationContext contexto)
         {
             this.contexto = contexto;
+        }
+
+        public IList<Produto> GetProdutos()
+        {
+            return contexto.Set<Produto>().ToList();
         }
 
         public void SaveProdutos(List<Livro> livros)
