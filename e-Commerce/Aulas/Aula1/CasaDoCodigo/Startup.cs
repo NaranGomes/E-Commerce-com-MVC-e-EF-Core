@@ -24,6 +24,9 @@ namespace CasaDoCodigo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            //Serviços necessários para usar sessão
+            services.AddDistributedMemoryCache(); //Mantem informações na memória
+            services.AddSession();
             
             //Método ensinado no curso. Deu erro ao baixar o migration: ConnectionString Null
             //string connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -56,6 +59,7 @@ namespace CasaDoCodigo
             }
 
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
